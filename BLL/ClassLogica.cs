@@ -316,16 +316,9 @@ namespace BLL
         {
             try
             {
-                DataTable tabla = Productos.GetDataByIDproducto(nombre);
-                if (tabla.Rows.Count < 1)
-                {
+
                     Productos.UpdateQueryProducto(nombre,desc,price1,price2,exs,exsmin,descuento,ID1,ID2,code);
                     return "Se Actualizo un producto";
-                }
-                else
-                {
-                    return "Error al encontrar el producto";
-                }
             }
             catch (Exception)
             {
@@ -346,6 +339,11 @@ namespace BLL
             {
                 throw;
             }
+        }
+
+        public DataTable ListarTiposProd()
+        {
+            return TipoProductos.GetDataTipoProductos();
         }
 
     }

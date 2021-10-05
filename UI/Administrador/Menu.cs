@@ -21,7 +21,9 @@ namespace UI.Administrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Productos dest = new Productos();
+            this.Hide();
+            dest.ShowDialog();
         }
 
         private void button6_Click(object sender, EventArgs e)

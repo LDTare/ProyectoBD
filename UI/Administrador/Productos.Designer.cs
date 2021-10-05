@@ -49,11 +49,11 @@ namespace UI.Administrador
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
@@ -93,11 +93,11 @@ namespace UI.Administrador
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.textBox5);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.textBox7);
+            this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox8);
+            this.panel1.Controls.Add(this.textBox7);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
@@ -124,6 +124,7 @@ namespace UI.Administrador
             this.button4.TabIndex = 12;
             this.button4.Text = "Eliminar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -133,6 +134,7 @@ namespace UI.Administrador
             this.button3.TabIndex = 11;
             this.button3.Text = "Actualizar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -142,6 +144,7 @@ namespace UI.Administrador
             this.button2.TabIndex = 10;
             this.button2.Text = "Agregar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label6
             // 
@@ -257,12 +260,12 @@ namespace UI.Administrador
             this.label8.TabIndex = 18;
             this.label8.Text = "Descuento";
             // 
-            // textBox6
+            // textBox5
             // 
-            this.textBox6.Location = new System.Drawing.Point(655, 125);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(369, 27);
-            this.textBox6.TabIndex = 17;
+            this.textBox5.Location = new System.Drawing.Point(655, 28);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(369, 27);
+            this.textBox5.TabIndex = 17;
             // 
             // label9
             // 
@@ -273,12 +276,12 @@ namespace UI.Administrador
             this.label9.TabIndex = 16;
             this.label9.Text = "Minimas";
             // 
-            // textBox7
+            // textBox6
             // 
-            this.textBox7.Location = new System.Drawing.Point(655, 79);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(369, 27);
-            this.textBox7.TabIndex = 15;
+            this.textBox6.Location = new System.Drawing.Point(655, 79);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(369, 27);
+            this.textBox6.TabIndex = 15;
             // 
             // label10
             // 
@@ -289,12 +292,12 @@ namespace UI.Administrador
             this.label10.TabIndex = 14;
             this.label10.Text = "Existencias";
             // 
-            // textBox8
+            // textBox7
             // 
-            this.textBox8.Location = new System.Drawing.Point(655, 28);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(369, 27);
-            this.textBox8.TabIndex = 13;
+            this.textBox7.Location = new System.Drawing.Point(655, 125);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(369, 27);
+            this.textBox7.TabIndex = 13;
             // 
             // label7
             // 
@@ -369,10 +372,10 @@ namespace UI.Administrador
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }
