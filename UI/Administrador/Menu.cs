@@ -36,5 +36,19 @@ namespace UI.Administrador
             this.Hide();
             dest.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Clientes dest = new Clientes();
+            this.Hide();
+            dest.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Proveedores dets = new Proveedores();
+            this.Hide();
+            dets.ShowDialog();
+        }
     }
 }

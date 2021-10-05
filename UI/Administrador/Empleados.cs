@@ -80,6 +80,7 @@ namespace UI.Administrador
             textBox4.Clear();
             comboBox1.Text = "";
             textBox1.Focus();
+            Actualizar();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -115,6 +116,16 @@ namespace UI.Administrador
             textBox4.Clear();
             comboBox1.Text = "";
             textBox1.Focus();
+            Actualizar();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string status;
+            int code = Convert.ToInt32(comboBox2.SelectedValue);
+            status = Logica.DelteEmpleado(code);
+            MessageBox.Show(status, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Actualizar();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace BLL
         private ProveedoresTableAdapter Proveedores;
         private ProductosTableAdapter Productos;
         private ClientesTableAdapter Clientes;
+        private Tipo_ProductosTableAdapter TipoProductos;
 
         public ClassLogica()
         {
@@ -24,6 +25,7 @@ namespace BLL
             Proveedores = new ProveedoresTableAdapter();
             Productos = new ProductosTableAdapter();
             Clientes = new ClientesTableAdapter();
+            TipoProductos = new Tipo_ProductosTableAdapter();
         }
 
         public int RolUser(string User, string Pass)
@@ -118,6 +120,21 @@ namespace BLL
             return Empleados.GetDataEmpleados();
         }
 
+        public string DelteEmpleado(int id)
+        {
+            try
+            {
+
+                Empleados.UpdateQueryEliminarEmpleado(id);
+                    return "Se inhabilito un empleado";
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public string ActualizarEmpleado(string nombre, string apellido, string user, string pass, int id,int cod)
         {
             try
@@ -144,14 +161,192 @@ namespace BLL
             return Proveedores.GetDataProveedores();
         }
 
-        private DataTable ListarClientes()
+        public string InsertarProveedor(string nombre, string direccion)
+
+        {
+            try
+            {
+                DataTable tabla = Proveedores.GetDataByNombreProveedor(nombre);
+                if (tabla.Rows.Count < 1)
+                {
+                    Proveedores.InsertQueryProveedores(nombre,direccion);
+                    return "Se agrego un nuevo Proveedor";
+                }
+                else
+                {
+                    return "El Proveedor se encuentra registrado";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public string ActualizarProveeodr(string nombre, string direccion, int code)
+
+        {
+            try
+            {
+                DataTable tabla = Proveedores.GetDataByNombreProveedor(nombre);
+                if (tabla.Rows.Count < 1)
+                {
+                    Proveedores.UpdateQueryProveedores(nombre,direccion,code);
+                    return "Se actualizo un nuevo Proveedor";
+                }
+                else
+                {
+                    return "Error no se encuentra al proveedor";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public string DeleteProveedor(int code)
+        {
+            try
+            {
+
+                Proveedores.UpdateQuery(code);
+                return "Se inhabilito un proveedor";
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataTable ListarClientes()
         {
             return Clientes.GetDataClientes();
+        }
+
+        public string InsertarCliente(string nombre, string apellido, string nit, string telefono, string direccion)
+
+        {
+            try
+            {
+                DataTable tabla = Clientes.GetDataByNIT(nit);
+                if (tabla.Rows.Count < 1)
+                {
+                    Clientes.InsertQueryClientes(nombre,apellido,nit,telefono,direccion);
+                    return "Se agrego un nuevo cliente";
+                }
+                else
+                {
+                    return "El NIT se encuentra registrado";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public string ActualizarCliente(string nombre, string apellido, string nit, string telefono, string direccion, int code)
+
+        {
+            try
+            {
+                DataTable tabla = Clientes.GetDataByNIT(nit);
+                if (tabla.Rows.Count < 1)
+                {
+                    Clientes.UpdateQueryCliente(nombre,apellido,nit,telefono,direccion,code);
+                    return "Se Modifico un Cliente";
+                }
+                else
+                {
+                    return "Error en la operacion";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public string DeleteCliente(int code)
+        {
+            try
+            {
+
+                Clientes.UpdateQueryDeleteCliente(code);
+                return "Se inhabilito un cliente";
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public DataTable ListarProductos()
         {
             return Productos.GetDataProductos();
         }
+
+        public string InsertarProducto(string nombre,string desc, float price1, float price2, int exs, int exsmin, float descuento, int ID1, int ID2)
+
+        {
+            try
+            {
+                DataTable tabla = Productos.GetDataByIDproducto(nombre);
+                if (tabla.Rows.Count < 1)
+                {
+                    Productos.InsertQueryProductos(nombre, desc, price1, price2, exs, exsmin, descuento, ID1, ID2);
+                    return "Se agrego un nuevo Producto";
+                }
+                else
+                {
+                    return "El Producto se encuentra registrado";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public string ActualizarProducto(string nombre, string desc, float price1, float price2, int exs, int exsmin, float descuento, int ID1, int ID2, int code)
+
+        {
+            try
+            {
+                DataTable tabla = Productos.GetDataByIDproducto(nombre);
+                if (tabla.Rows.Count < 1)
+                {
+                    Productos.UpdateQueryProducto(nombre,desc,price1,price2,exs,exsmin,descuento,ID1,ID2,code);
+                    return "Se Actualizo un producto";
+                }
+                else
+                {
+                    return "Error al encontrar el producto";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public string DeleteProducto(int code)
+        {
+            try
+            {
+
+                Productos.UpdateQueryDeleteProducto(code);
+                return "Se inhabilito un Producto";
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

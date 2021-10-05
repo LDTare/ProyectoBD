@@ -66,6 +66,7 @@ namespace UI.Administrador
             this.button3.TabIndex = 2;
             this.button3.Text = "Clientes";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -75,6 +76,7 @@ namespace UI.Administrador
             this.button4.TabIndex = 3;
             this.button4.Text = "Proveedores";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 

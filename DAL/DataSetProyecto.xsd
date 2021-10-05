@@ -29,15 +29,6 @@ FROM            Empleados</CommandText>
               <Mapping SourceColumn="ID_Rol" DataSetColumn="ID_Rol" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="ProyectoBD.dbo.Empleados" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIDEmpleado" GetMethodModifier="Public" GetMethodName="GetDataByIDEmpleado" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIDEmpleado" UserSourceName="GetDataByIDEmpleado">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        ID_Empleado
-FROM            Empleados</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
               <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="ProyectoBD.dbo.Empleados" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNombreEmpleado" GetMethodModifier="Public" GetMethodName="GetDataByNombreEmpleado" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNombreEmpleado" UserSourceName="GetDataByNombreEmpleado">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -72,6 +63,16 @@ WHERE        (Nombre = @nombre)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="ProyectoBD.dbo.Empleados" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByView" GetMethodModifier="Public" GetMethodName="GetDataByView" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByView" UserSourceName="GetDataByView">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ID_Empleado, Nombre, Apellido, Usuario, Password, Estado, ID_Rol
+FROM            Empleados
+WHERE        (Estado &lt;&gt; 0)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryEmpleados" Modifier="Public" Name="InsertQueryEmpleados" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQueryEmpleados">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -88,7 +89,7 @@ VALUES        (@Nombre,@Apellido,@Usuario,@Password, 1,@ID)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryEliminarEmpleado" Modifier="Public" Name="UpdateQueryEliminarEmpleado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQueryEliminarEmpleado">
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryEliminarEmpleado" Modifier="Public" Name="UpdateQueryEliminarEmpleado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQueryEliminarEmpleado">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE Empleados
@@ -100,7 +101,7 @@ Where ID_Empleado = @id</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryEmpleados" Modifier="Public" Name="UpdateQueryEmpleados" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQueryEmpleados">
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryEmpleados" Modifier="Public" Name="UpdateQueryEmpleados" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQueryEmpleados">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       Empleados
@@ -165,7 +166,73 @@ FROM            Productos</CommandText>
               <Mapping SourceColumn="ID_TipoProducto" DataSetColumn="ID_TipoProducto" />
               <Mapping SourceColumn="ID_Proveedor" DataSetColumn="ID_Proveedor" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="ProyectoBD.dbo.Productos" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIDproducto" GetMethodModifier="Public" GetMethodName="GetDataByIDproducto" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIDproducto" UserSourceName="GetDataByIDproducto">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Productos.*
+FROM            Productos
+Where Nombre =@ID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="Nombre" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="varchar(75)" DbType="AnsiString" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="VarChar" Scale="0" Size="75" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryProductos" Modifier="Public" Name="InsertQueryProductos" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQueryProductos">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Productos
+                         (Nombre, Descripcion, Precio_Venta, Precio_Compra, Existencias, Existencias_Min, Descuento, ID_TipoProducto, ID_Proveedor)
+VALUES        (@Nombre, @Descrip,@precio,@compra,@exi,@eximin,@desc,@ID,@IDp)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Nombre" ColumnName="Nombre" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="varchar(75)" DbType="AnsiString" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="75" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Descrip" ColumnName="Descripcion" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Descrip" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="precio" ColumnName="Precio_Venta" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@precio" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Precio_Venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="compra" ColumnName="Precio_Compra" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@compra" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Precio_Compra" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="exi" ColumnName="Existencias" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@exi" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Existencias" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="eximin" ColumnName="Existencias_Min" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@eximin" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Existencias_Min" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="desc" ColumnName="Descuento" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@desc" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Descuento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ID" ColumnName="ID_TipoProducto" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_TipoProducto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="IDp" ColumnName="ID_Proveedor" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IDp" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_Proveedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryDeleteProducto" Modifier="Public" Name="UpdateQueryDeleteProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQueryDeleteProducto">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Productos
+SET                Estado = 0
+WHERE        (ID_Producto = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="ID_Producto" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_Producto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryProducto" Modifier="Public" Name="UpdateQueryProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQueryProducto">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Productos
+SET                Nombre = @nom, Descripcion = @desc, Precio_Venta = @p1, Precio_Compra = @p2, Existencias = @exis, Existencias_Min = @ex, Descuento = @descuento, ID_TipoProducto = @id1, ID_Proveedor = @id2
+WHERE        (ID_Producto = @idprod)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="nom" ColumnName="Nombre" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="varchar(75)" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="75" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="desc" ColumnName="Descripcion" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@desc" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="p1" ColumnName="Precio_Venta" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Precio_Venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="p2" ColumnName="Precio_Compra" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Precio_Compra" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="exis" ColumnName="Existencias" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@exis" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Existencias" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ex" ColumnName="Existencias_Min" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ex" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Existencias_Min" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="descuento" ColumnName="Descuento" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@descuento" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="Descuento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="id1" ColumnName="ID_TipoProducto" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id1" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_TipoProducto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="id2" ColumnName="ID_Proveedor" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id2" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_Proveedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idprod" ColumnName="ID_Producto" DataSourceName="ProyectoBD.dbo.Productos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idprod" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_Producto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Tipo_ProductosTableAdapter" GeneratorDataComponentClassName="Tipo_ProductosTableAdapter" Name="Tipo_Productos" UserDataComponentName="Tipo_ProductosTableAdapter">
             <MainSource>
@@ -204,7 +271,58 @@ FROM            Proveedores</CommandText>
               <Mapping SourceColumn="Direccion" DataSetColumn="Direccion" />
               <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="ProyectoBD.dbo.Proveedores" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNombreProveedor" GetMethodModifier="Public" GetMethodName="GetDataByNombreProveedor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNombreProveedor" UserSourceName="GetDataByNombreProveedor">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT       *
+FROM            Proveedores
+WHERE        (Nombre = @nombre)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="nombre" ColumnName="Nombre" DataSourceName="ProyectoBD.dbo.Proveedores" DataTypeServer="varchar(75)" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="75" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryProveedores" Modifier="Public" Name="InsertQueryProveedores" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQueryProveedores">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Proveedores (Nombre, Direccion, Estado)
+values (@Nombre, @Direccion, 1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Nombre" ColumnName="Nombre" DataSourceName="ProyectoBD.dbo.Proveedores" DataTypeServer="varchar(75)" DbType="AnsiString" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="75" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Direccion" ColumnName="Direccion" DataSourceName="ProyectoBD.dbo.Proveedores" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Direccion" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Direccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Proveedores
+SET                Estado = 0
+WHERE        (ID_Proveedor = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="ID_Proveedor" DataSourceName="ProyectoBD.dbo.Proveedores" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_Proveedor" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryProveedores" Modifier="Public" Name="UpdateQueryProveedores" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQueryProveedores">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE Proveedores
+SET Nombre= @Nombre, Direccion=@Direccion
+Where ID_Proveedor =@id</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Nombre" ColumnName="Nombre" DataSourceName="ProyectoBD.dbo.Proveedores" DataTypeServer="varchar(75)" DbType="AnsiString" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="75" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Direccion" ColumnName="Direccion" DataSourceName="ProyectoBD.dbo.Proveedores" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Direccion" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Direccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="ID_Proveedor" DataSourceName="ProyectoBD.dbo.Proveedores" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_Proveedor" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClientesTableAdapter" GeneratorDataComponentClassName="ClientesTableAdapter" Name="Clientes" UserDataComponentName="ClientesTableAdapter">
             <MainSource>
@@ -227,7 +345,65 @@ FROM            Clientes</CommandText>
               <Mapping SourceColumn="Direccion" DataSetColumn="Direccion" />
               <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="ProyectoBD.dbo.Clientes" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNIT" GetMethodModifier="Public" GetMethodName="GetDataByNIT" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNIT" UserSourceName="GetDataByNIT">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Clientes.*
+FROM            Clientes
+Where NIT=@nit</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="nit" ColumnName="NIT" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="nvarchar(30)" DbType="String" Direction="Input" ParameterName="@nit" Precision="0" ProviderType="NVarChar" Scale="0" Size="30" SourceColumn="NIT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryClientes" Modifier="Public" Name="InsertQueryClientes" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQueryClientes">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Clientes
+                         (Nombre, Apellido, NIT, Telefono, Direccion,Estado)
+VALUES        (@Nombre,@Apellido,@Nit,@Telefono,@Direccion, 1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Nombre" ColumnName="Nombre" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="char(50)" DbType="AnsiString" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="Char" Scale="0" Size="50" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Apellido" ColumnName="Apellido" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="char(50)" DbType="AnsiString" Direction="Input" ParameterName="@Apellido" Precision="0" ProviderType="Char" Scale="0" Size="50" SourceColumn="Apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Nit" ColumnName="NIT" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="nvarchar(30)" DbType="String" Direction="Input" ParameterName="@Nit" Precision="0" ProviderType="NVarChar" Scale="0" Size="30" SourceColumn="NIT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Telefono" ColumnName="Telefono" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="nvarchar(25)" DbType="String" Direction="Input" ParameterName="@Telefono" Precision="0" ProviderType="NVarChar" Scale="0" Size="25" SourceColumn="Telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Direccion" ColumnName="Direccion" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Direccion" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Direccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryCliente" Modifier="Public" Name="UpdateQueryCliente" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQueryCliente">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Clientes
+SET                Nombre = @nombre, Apellido = @apellido, NIT = @nit, Telefono = @Tele, Direccion = @Direccion
+WHERE        (ID_Cliente = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="nombre" ColumnName="Nombre" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="char(50)" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="Char" Scale="0" Size="50" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="apellido" ColumnName="Apellido" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="char(50)" DbType="AnsiString" Direction="Input" ParameterName="@apellido" Precision="0" ProviderType="Char" Scale="0" Size="50" SourceColumn="Apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="nit" ColumnName="NIT" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="nvarchar(30)" DbType="String" Direction="Input" ParameterName="@nit" Precision="0" ProviderType="NVarChar" Scale="0" Size="30" SourceColumn="NIT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Tele" ColumnName="Telefono" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="nvarchar(25)" DbType="String" Direction="Input" ParameterName="@Tele" Precision="0" ProviderType="NVarChar" Scale="0" Size="25" SourceColumn="Telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Direccion" ColumnName="Direccion" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Direccion" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Direccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="ID_Cliente" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_Cliente" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ProyectoBDConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryDeleteCliente" Modifier="Public" Name="UpdateQueryDeleteCliente" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQueryDeleteCliente">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE Clientes 
+SET Estado =0
+Where ID_Cliente = @ID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="ID_Cliente" DataSourceName="ProyectoBD.dbo.Clientes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_Cliente" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
