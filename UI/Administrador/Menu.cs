@@ -66,5 +66,12 @@ namespace UI.Administrador
             this.Hide();
             dest.ShowDialog();
         }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            MetodoPago orus = new MetodoPago();
+            this.Hide();
+            orus.ShowDialog();
+        }
     }
 }

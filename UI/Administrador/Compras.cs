@@ -73,6 +73,7 @@ namespace UI.Administrador
                 Actualizar();
                 Codigo.Text = Convert.ToString(serial);
                 orus.codigo = serial;
+                dateTimePicker1.Value = DateTime.Today;
             }
         }
 
