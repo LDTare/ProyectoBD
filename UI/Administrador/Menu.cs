@@ -52,5 +52,19 @@ namespace UI.Administrador
             this.Hide();
             dets.ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Ventas dest = new Ventas();
+            this.Hide();
+            dest.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Compras dest = new Compras();
+            this.Hide();
+            dest.ShowDialog();
+        }
     }
 }

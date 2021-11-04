@@ -4,6 +4,10 @@
 
     partial class DataSetProyecto
     {
+        partial class RolDataTable
+        {
+        }
+
         partial class EmpleadosDataTable
         {
         }

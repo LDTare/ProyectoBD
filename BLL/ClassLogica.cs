@@ -17,6 +17,13 @@ namespace BLL
         private ProductosTableAdapter Productos;
         private ClientesTableAdapter Clientes;
         private Tipo_ProductosTableAdapter TipoProductos;
+        private Metodos_PagoTableAdapter MetodosPago;
+        private Detalle_ComprasTableAdapter DetalleCompras;
+        private ComprasTableAdapter Compras;
+        private Tipo_MetodoTableAdapter TipoMetodo;
+
+        //vista factura
+        private VistaFacturaTableAdapter Factura;
 
         public ClassLogica()
         {
@@ -26,6 +33,11 @@ namespace BLL
             Productos = new ProductosTableAdapter();
             Clientes = new ClientesTableAdapter();
             TipoProductos = new Tipo_ProductosTableAdapter();
+            Compras = new ComprasTableAdapter();
+            DetalleCompras = new Detalle_ComprasTableAdapter();
+            MetodosPago = new Metodos_PagoTableAdapter();
+            TipoMetodo = new Tipo_MetodoTableAdapter();
+            Factura = new VistaFacturaTableAdapter();
         }
 
         public int RolUser(string User, string Pass)
@@ -344,6 +356,103 @@ namespace BLL
         public DataTable ListarTiposProd()
         {
             return TipoProductos.GetDataTipoProductos();
+        }
+
+        //Factura
+        public DataTable ListarFactura()
+        {
+            return Factura.GetDataVistaCompras();
+        }
+
+        public DataTable ListarExistentes(int id)
+        {
+            return Factura.GetDataByCodigoCompras(id);
+        }
+
+        public DataTable ListarCodFactura(int codigo)
+        {
+            return Factura.GetDataByCodigoCompras(codigo);
+        }
+
+        public string InsertarCompra(int codigo, int cliente, int empleado, string forma, string fecha, double total)
+        {
+            try
+            {
+                DataTable tabla = Compras.GetDataByIDCompras(codigo);
+                if (tabla.Rows.Count < 1)
+                {
+                    Compras.InsertQueryCompras(codigo, cliente, empleado, forma, fecha, total);
+                    return "Nueva compra registrada";
+                }
+                else
+                {
+                    return "Error al registrar la compra";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        //Metodos de Pago
+        public DataTable ListarMetodosPago()
+        {
+            return MetodosPago.GetDataMetodosPago();
+        }
+
+        public string InsertarMetodo(int cliente, int tipo, string fecha, string dec)
+        {
+            try
+            {
+                DataTable tabla = MetodosPago.GetDataMetodosPago();
+                if (tabla.Rows.Count < 1)
+                {
+                    MetodosPago.InsertQueryMetodoPago(cliente, tipo, fecha, dec);
+                    return "Se agrego un nuevo Metodo de pago";
+                }
+                else
+                {
+                    return "Error al agergar el metodo de pago";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        //Tipos de Metodos
+        public DataTable ListarTiposMetodos()
+        {
+            return TipoMetodo.GetDataTipoMetodos();
+        }
+
+        //Compras
+        public DataTable ListarDetallesCompras()
+        {
+            return DetalleCompras.GetDataDetalleCompras();
+        }
+
+        public string InsertarDetalle(int producto, int codigo, double total)
+        {
+            try
+            {
+                DataTable tabla = DetalleCompras.GetDataDetalleCompras();
+                if (tabla.Rows.Count < 1)
+                {
+                    DetalleCompras.InsertQueryDetalleCompra(producto, codigo, total);
+                    return "Se agrego un nuevo Producto";
+                }
+                else
+                {
+                    return "El Producto se encuentra registrado";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }
