@@ -22,7 +22,7 @@ namespace UI.Administrador
         ClassLogica Logica = new ClassLogica();
         Menu dest = new Menu();
 
-        private void MetodoPago_Load(object sender, EventArgs e)
+        public void actualizar()
         {
             dateTimePicker1.Value = DateTime.Now;
 
@@ -35,6 +35,18 @@ namespace UI.Administrador
             comboBox2.DisplayMember = "Nombre";
             comboBox2.ValueMember = "ID_TipoMetodo";
             comboBox2.Refresh();
+
+            dataGridView1.DataSource = Logica.ListarMetodosPago();
+            dataGridView1.Refresh();
+
+            textBox1.Clear();
+            comboBox1.Text = "";
+            comboBox2.Text = "";
+        }
+
+        private void MetodoPago_Load(object sender, EventArgs e)
+        {
+            actualizar();   
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,6 +55,7 @@ namespace UI.Administrador
             int metodo = Convert.ToInt32( comboBox2.SelectedValue);
 
             Logica.InsertarMetodo(cliente,metodo,dateTimePicker1.Text,textBox1.Text);
+            actualizar();
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -405,16 +405,9 @@ namespace BLL
         {
             try
             {
-                DataTable tabla = MetodosPago.GetDataMetodosPago();
-                if (tabla.Rows.Count < 1)
-                {
+
                     MetodosPago.InsertQueryMetodoPago(cliente, tipo, fecha, dec);
                     return "Se agrego un nuevo Metodo de pago";
-                }
-                else
-                {
-                    return "Error al agergar el metodo de pago";
-                }
             }
             catch (Exception)
             {
